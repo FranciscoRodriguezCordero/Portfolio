@@ -1,1 +1,5 @@
-Covid-19 Dashboard example: https://public.tableau.com/views/Covid-19DashboardExample_16763360056370/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link 
+Covid-19 Dashboard example: 
+https://public.tableau.com/views/Covid-19DashboardExample_16763360056370/Dashboard1?:language=en-US&:display_count=n&:origin=viz_share_link 
+
+AirBnB Dashboard example: 
+https://public.tableau.com/views/AirBnBSampleDashboard/Dashboard1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link
