@@ -50,8 +50,6 @@ Orders.Order_ID
 ,Orders.Delivery_Date
 ,Products.SKU
 ,Products.Product_Description
---,Products.SKU
---,Products.Product_Description
 ,SUM(Products.Product_Price) AS SubTotal
 ,SUM(Products.Product_Price)*0.13 AS Taxes
 ,SUM(Products.Product_Price) + (SUM(Products.Product_Price)*0.13 ) as Total 
