@@ -105,7 +105,6 @@ SELECT
 Orders.Purchase_Date
 ,SUM(Products.Product_Price)
 ,COUNT (DISTINCT Orders.Order_ID)
---INTO #Sales_Date
 FROM Orders
 INNER JOIN Order_Products
 ON Orders.Order_ID = Order_Products.Order_ID
