@@ -1,15 +1,11 @@
+--Data source https://ourworldindata.org/covid-deaths 
+
 create database SQLPortfolio
 
 use SQLPortfolio
 
 
---select * 
---from dbo.CovidDeaths 
---order by 3,4
-
-
---select * from dbo.CovidVaccinations order by 3,4
-
+-- Exploring data 
 Select Location, date, total_cases, new_cases, total_deaths, population 
 from SQLPortfolio..CovidDeaths 
 order by 1,2
@@ -80,7 +76,7 @@ where dea.continent is not null
 order by 2,3
 
 
---- USE CTE 
+--- Checking amount of vaccinated people by location ordered by date  using CTE
 
 With PopvsVac (continent, location, date, population, new_vaccinations ,PeopleVaccinated)
 as 
@@ -100,7 +96,7 @@ from PopvsVac
 
 
 
--- TEMP TABLE 
+-- Checking the percentage a of vaccinated people by location ordered by date using TEMP TABLE 
 
 drop table if exists #PercentPopulationVaccinated
 create table #PercentPopulationVaccinated
