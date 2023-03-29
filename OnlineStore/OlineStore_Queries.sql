@@ -103,8 +103,43 @@ GROUP BY Zip_Code
 
 SELECT
 Orders.Purchase_Date
-,SUM(Products.Product_Price)
-,COUNT (DISTINCT Orders.Order_ID)
+,SUM(Products.Product_Price) AS Total_Revenue
+,COUNT (DISTINCT Orders.Order_ID) AS Total_Orders
+FROM Orders
+INNER JOIN Order_Products
+ON Orders.Order_ID = Order_Products.Order_ID
+INNER JOIN Products
+ON Products.Product_ID = Order_Products.Product_ID
+GROUP BY 
+Orders.Purchase_Date;
+
+--Checking average orders per day
+
+SELECT * FROM ORDERS;
+
+WITH Total_Orders (Purchase_Date, Count_Orders)
+AS
+(
+SELECT 
+Purchase_Date
+,COUNT(DISTINCT Order_ID) AS Total_Orders 
+FROM Orders
+GROUP BY Purchase_Date
+)
+SELECT
+'Average orders placed by day ' AS Question
+,AVG(Count_Orders) AS Answer
+FROM Total_Orders;
+
+--Checking the percentage of revenue difference between days with a window function  and CTE 
+
+WITH Sales_Per_Day (Purchase_Date,Total_Revenue, Last_Day_Revenue, Total_Orders) AS
+(
+SELECT
+Orders.Purchase_Date
+,SUM(Products.Product_Price) AS Total_Revenue
+,Last_Day_Revenue = LAG(SUM(Products.Product_Price),1) OVER (ORDER BY Orders.Purchase_Date)
+,COUNT (DISTINCT Orders.Order_ID) AS Total_Orders
 FROM Orders
 INNER JOIN Order_Products
 ON Orders.Order_ID = Order_Products.Order_ID
@@ -112,4 +147,10 @@ INNER JOIN Products
 ON Products.Product_ID = Order_Products.Product_ID
 GROUP BY 
 Orders.Purchase_Date
+)
+
+SELECT 
+*,ROUND((CONVERT(float,(Total_Revenue - Last_Day_Revenue))/CONVERT(float, Total_Revenue))*100,2) AS Percentage_Change
+FROM Sales_Per_Day
+WHERE Last_Day_Revenue IS NOT NULL
 

@@ -118,6 +118,16 @@ EXEC Register_Order 7,7,7,'2023-10-09','TBM993456783'
 EXEC Register_Order 7,7,7,'2023-10-11','TBM923456784'
 EXEC Register_Order 7,7,7,'2023-10-12','TBM923456785'
 
+--Day 4 placing orders
+EXEC Register_Order 1,1,1,'2023-12-05','TBM963456781'
+EXEC Register_Order 2,3,2,'2023-12-06','TBM963456782'
+EXEC Register_Order 3,2,3,'2023-12-07','TBM963456783'
+EXEC Register_Order 4,1,4,'2023-12-08','TBM963456784'
+
+EXEC Register_Order 5,5,5,'2023-12-09','TBM963456785'
+EXEC Register_Order 6,6,6,'2023-12-09','TBM963456786'
+EXEC Register_Order 7,7,7,'2023-12-11','TBM963456787'
+EXEC Register_Order 8,8,8,'2023-12-12','TBM963456788'
 
 ---- Linking orders with products using the stored proecedure 
 
@@ -230,6 +240,17 @@ EXEC Register_Order_Products 33,8
 EXEC Register_Order_Products 33,8
 EXEC Register_Order_Products 33,7
 EXEC Register_Order_Products 33,7
+
+--Day 4 placing orders
+EXEC Register_Order_Products 57,4
+EXEC Register_Order_Products 58,8
+EXEC Register_Order_Products 59,3
+EXEC Register_Order_Products 60,3
+
+EXEC Register_Order_Products 61,7
+EXEC Register_Order_Products 62,2
+EXEC Register_Order_Products 63,1
+EXEC Register_Order_Products 64,1
 
 
 ---- Confirming values registered 
